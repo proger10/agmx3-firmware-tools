@@ -73,9 +73,6 @@ class Packer:
     def export(self, fname):
         self.fw_f = open(fname, 'wb')
         header = self.make_header()
-        f = open('/mnt/d/mobile/head.test', 'wb')
-        f.write(header)
-        f.close()
 
         self.fw_f.seek(0)
         self.fw_f.write(DES.new(self.des_key, DES.MODE_ECB).encrypt(header))
